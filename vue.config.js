@@ -32,8 +32,8 @@ const multiPage = function() {
   let page = {};
   for (let item in multiPageConfig) {
     page[item] = {
-      entry: `src/${item}/main.js`,
-      template: `src/${item}/index.html`,
+      entry: `src/view/${item}/main.js`,
+      template: `src/view/${item}/index.html`,
       filename: `${item}.html`,
       title: multiPageConfig[item].name
       // favicon: `src/${item}/assets/${item}.ico`
