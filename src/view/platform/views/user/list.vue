@@ -6,7 +6,7 @@
       </el-form-item>
       <el-form-item>
         <el-button @click="query">查询</el-button>
-        <el-button>新增</el-button>
+        <el-button @click="add">新增</el-button>
       </el-form-item>
     </el-form>
     <el-table :data="data">
@@ -17,7 +17,7 @@
       ></el-table-column>
     </el-table>
 
-    <formModal></formModal>
+    <formModal ref="moadls" :formdata="formdata"></formModal>
   </div>
 </template>
 
@@ -63,7 +63,44 @@ export default {
           prop: "make"
         }
       ],
-      data: []
+      data: [],
+
+      //   NAME: obj.name,
+      //         SEX: obj.sex,
+      //         TYPE: obj.type,
+      //         EMAIL: obj.email,
+      //         // TIME: obj.time,
+      //         PHONE: obj.phone,
+      //         MAKE: obj.make,
+      //         USERNAME: obj.userName,
+      //         PASSWORD: obj.password
+
+      formdata: [
+        {
+          label: "名称",
+          pops: "name"
+        },
+        {
+          label: "电话",
+          pops: "phone"
+        },
+        {
+          label: "邮箱",
+          pops: "email"
+        },
+        {
+          label: "类型",
+          pops: "type"
+        },
+        {
+          label: "密码",
+          pops: "password"
+        },
+        {
+          label: "备注",
+          pops: "make"
+        }
+      ]
     };
   },
   methods: {
@@ -73,6 +110,9 @@ export default {
           this.data = res.data;
         }
       });
+    },
+    add() {
+      this.$refs.moadls.show();
     }
   },
   components: { formModal }

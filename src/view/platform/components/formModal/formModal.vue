@@ -6,14 +6,18 @@
       width="30%"
       :before-close="handleClose"
     >
-      <span>这是一段信息</span>
       <el-form
         :model="ruleForm"
         ref="ruleForm"
         label-width="100px"
         class="demo-ruleForm"
       >
-        <el-form-item label="活动名称" prop="name">
+        <el-form-item
+          :label="item.label"
+          :prop="item.prop"
+          v-for="(item, key) in formdata"
+          :key="key"
+        >
           <el-input v-model="ruleForm.name"></el-input>
         </el-form-item>
       </el-form>
@@ -36,6 +40,17 @@ export default {
         name: "12"
       }
     };
+  },
+  methods: {
+    show() {
+      this.dialogVisible = true;
+    },
+    handleClose() {}
+  },
+  props: {
+    formdata: {
+      type: Array
+    }
   }
 };
 </script>

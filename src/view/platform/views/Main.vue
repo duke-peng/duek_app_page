@@ -7,7 +7,7 @@
     <el-container>
       <el-header
         style="text-align:right; font-size: 12px;line-height: 60px;
-;background:rgb(239, 243, 253"
+                        ;background:rgb(239, 243, 253"
       >
         <el-dropdown @command="handleCommand">
           <i class="el-icon-setting" style="margin-right: 15px"></i>
@@ -26,6 +26,7 @@
 </template>
 <script>
 import muns from "./Main.js";
+import util from "@/common/tool/util.js";
 export default {
   name: "home",
   components: {
@@ -43,8 +44,8 @@ export default {
     this.user = JSON.parse(localStorage.getItem("user")).name;
   },
   methods: {
-    handleCommand(command) {
-      console.log(command);
+    handleCommand() {
+      util.logout();
     }
   }
 };
